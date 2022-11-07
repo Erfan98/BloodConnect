@@ -16,7 +16,7 @@
 <body>
   <header>
     <!-- place navbar here -->
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
           <div class="container">
             <img src="{{asset('logo.png')}}" class="img-fluid rounded-top" alt="" width="50">
             <a class="navbar-brand" href="#">Blood Connect</a>
@@ -29,12 +29,18 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#" aria-current="p23">Home <span class="visually-hidden">(current)</span></a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" aria-current="p23">Donor Card Verification <span class="visually-hidden">(current)</span></a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
 
                     @auth
                     <li class="nav-item">
-                        <a class="nav-link active" href="http://" target="_blank" rel="noopener noreferrer">{{Auth::user()->name}}</a>
+                        <a class="nav-link active" href="#" target="_blank" rel="noopener noreferrer">{{Auth::user()->name}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/logout" target="_blank" rel="noopener noreferrer">Logout</a>
                     </li>
                     @endauth
                     @guest
@@ -53,7 +59,7 @@
     </nav>
 
   </header>
-  <main class="container-fluid">
+  <main class="container">
         <div class="mx-auto">
             <div style="background-color: rgb(221, 12, 12);" class="p- mb-4 rounded-3">
                 <div style="padding: 30vh;" class="elements container-fluid py-5">
