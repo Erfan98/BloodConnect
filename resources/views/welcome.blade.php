@@ -11,6 +11,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
+
 </head>
 
 <body>
@@ -64,6 +65,8 @@
             <div style="background-color: rgb(221, 12, 12);" class="p- mb-4 rounded-3">
                 <div style="padding: 30vh;" class="elements container-fluid py-5">
                   <div class="mb-3 w-100">
+
+
                     <h2 for="" class="text-white form-label">Select District</h2>
                     <select class="w-100 form-select form-select-lg" name="" id="">
                         <option selected>Select one</option>
@@ -75,33 +78,45 @@
                   </div>
                   <h3 class="text-white">Select the blood group you are looking for</h3>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="" value="option1">
+                    <input class="form-check-input" type="checkbox" id="" value="A+">
                     <label class="form-check-label" for="">A+</label>
                     </div>
                     <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="" value="option2">
+                    <input class="form-check-input" type="checkbox" id="" value="B+">
                     <label class="form-check-label" for="">B+</label>
                     </div>
                     <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="" value="option3">
+                    <input class="form-check-input" type="checkbox" id="" value="AB+">
                     <label class="form-check-label" for="">AB+</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="" value="option3">
-                        <label class="form-check-label" for="">O+</label>
-                        </div>
+                    <input class="form-check-input" type="checkbox" id="" value="O+">
+                    <label class="form-check-label" for="">O+</label>
+                    </div>
 
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="" value="option3">
+                            <input class="form-check-input" type="checkbox" id="" value="A-">
                             <label class="form-check-label" for="">A-</label>
-                            </div>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="" value="B-">
+                            <label class="form-check-label" for="">B-</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="" value="AB-">
+                            <label class="form-check-label" for="">AB-</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="" value="O-">
+                            <label class="form-check-label" for="">O-</label>
+                        </div>
 
                 </div>
-              </div>
+                  </div>
         </div>
 
      <div style="padding: 2rem;" class="table-responsive">
-        <table class="table table-striped">
+        <table id="data" class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">Donor ID</th>
@@ -145,6 +160,15 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
     integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
   </script>
+  {{-- Jquery File --}}
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+
+  {{-- Data Table Integration --}}
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+<script src={{asset('app.js')}} ></script>
 </body>
+
 
 </html>
