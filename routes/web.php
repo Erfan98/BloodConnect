@@ -22,4 +22,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+
+Route::get('/filter',function(){
+    $filterd_user = User::where('group',request()->group)->get();
+    return $filterd_user;
+});
+
 require __DIR__.'/auth.php';

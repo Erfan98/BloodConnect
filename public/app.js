@@ -8,8 +8,25 @@ $(document).ready( function () {
         // this will contain a reference to the checkbox
         if (this.checked) {
             console.log($(this).val())
+
+            $.ajax({
+                type: "GET",
+                url: "/filter?group="+encodeURIComponent($(this).val()),
+                success: function (response) {
+                    console.log(response)
+                    $('#data tbody').empty();
+                    var total = Object.keys(response).length;
+                    for(var i =0;i<total;i++){
+                       // console.log(response[i].name)
+                        $('#data tbody').append('<tr><td>'+response[i].id+'</td><td>'+response[i].name+'</td><td>'+response[i].age+'</td><td>'+response[i].group+'</td><td>'+response[i].city+'</td><td>'+response[i].district+'</td><td>'+response[i].phone+'</td><td>'+response[i].email+'</td><td>'+moment(response[i].updated_at).fromNow()+'</td></tr>');
+                    }
+
+                    //$('#data tr:last').after('<tr>...</tr><tr>...</tr>');
+
+                }
+            });
         } else {
-            console.log(this)
+            console.log("unchecked")
         }
     });
 } );
