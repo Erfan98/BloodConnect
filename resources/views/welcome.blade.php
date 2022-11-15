@@ -70,10 +70,14 @@
                     <h2 for="" class="text-white form-label">Select District</h2>
                     <select class="w-100 form-select form-select-lg" name="" id="">
                         <option selected>Select one</option>
+                        @foreach ($users as $user)
+                        <option value="{{$user->city}}">{{$user->city}}</option>
+                        @endforeach
+                        {{-- <option selected>Select one</option>
                         <option value="">Dhaka</option>
                         <option value="">Rajshahi</option>
                         <option value="">Chittagong</option>
-                        <option value="">Bandarban</option>
+                        <option value="">Bandarban</option> --}}
                     </select>
                   </div>
                   <h3 class="text-white">Select the blood group you are looking for</h3>
