@@ -65,13 +65,17 @@
             <div style="background-color: rgb(221, 12, 12);" class="p- mb-4 rounded-3">
                 <div style="padding: 30vh;" class="elements container-fluid py-5">
                   <div class="mb-3 w-100">
+                    <form action="/filter" method="post">
 
-
+                        @csrf
+                        @php
+                            use App\Models\User;
+                        @endphp
                     <h2 for="" class="text-white form-label">Select District</h2>
-                    <select class="w-100 form-select form-select-lg" name="" id="">
-                        <option selected>Select one</option>
-                        @foreach ($users as $user)
-                        <option value="{{$user->city}}">{{$user->city}}</option>
+                    <select class="w-100 form-select form-select-lg" name="district" id="district">
+                        <option selected value="">Select one</option>
+                        @foreach (User::orderBy('district')->get() as $user)
+                        <option value="{{$user->district}}">{{$user->district}}</option>
                         @endforeach
                         {{-- <option selected>Select one</option>
                         <option value="">Dhaka</option>
@@ -82,42 +86,48 @@
                   </div>
                   <h3 class="text-white">Select the blood group you are looking for</h3>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="" value="A+">
+                    <input class="form-check-input" type="checkbox" name="group" id="" value="A+">
                     <label class="form-check-label" for="">A+</label>
                     </div>
                     <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="" value="B+">
+                    <input class="form-check-input" name="group" type="checkbox" id="" value="B+">
                     <label class="form-check-label" for="">B+</label>
                     </div>
                     <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="" value="AB+">
+                    <input class="form-check-input" name="group" type="checkbox" id="" value="AB+">
                     <label class="form-check-label" for="">AB+</label>
                     </div>
                     <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="" value="O+">
+                    <input class="form-check-input" name="group" type="checkbox" id="" value="O+">
                     <label class="form-check-label" for="">O+</label>
                     </div>
 
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="" value="A-">
+                            <input class="form-check-input" name="group" type="checkbox" id="" value="A-">
                             <label class="form-check-label" for="">A-</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="" value="B-">
+                            <input class="form-check-input" name="group" type="checkbox" id="" value="B-">
                             <label class="form-check-label" for="">B-</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="" value="AB-">
+                            <input class="form-check-input" name="group" type="checkbox" id="" value="AB-">
                             <label class="form-check-label" for="">AB-</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="" value="O-">
+                            <input class="form-check-input" name="group" type="checkbox" id="" value="O-">
                             <label class="form-check-label" for="">O-</label>
                         </div>
-
+                        <br>
+                        <br>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Search</button>
                 </div>
+
                   </div>
         </div>
+
+    </form>
 
      <div style="padding: 2rem;" class="table-responsive">
         <table id="data" class="table table-striped">

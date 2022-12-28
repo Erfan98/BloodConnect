@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+// use GuzzleHttp\Psr7\Request;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +27,34 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
-Route::get('/filter',function(){
-    $filterd_user = User::where('group',request()->group)->get();
-    return $filterd_user;
+Route::post('/filter',function(Request $request){
+   // return $request->district;
+
+    if($request->district==null){
+
+       // dd("if block");
+        $user = User::where('group',$request->group)
+        ->get();
+        return view('welcome',['users'=>$user]);
+    }
+    if($request->group==null){
+       // dd("else block");
+        $user = User::where('district',$request->district)
+        ->get();
+        return view('welcome',['users'=>$user]);
+    }
+    else{
+        $user = User::where('district',$request->district)
+        ->where('group',$request->group)
+        ->get();
+        return view('welcome',['users'=>$user]);
+    }
+
+
 });
+
+// Route::post('/filter',function(Request $request){
+//     return $request->all();
+// });
 
 require __DIR__.'/auth.php';
