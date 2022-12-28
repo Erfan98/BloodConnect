@@ -31,7 +31,7 @@
                         <a class="nav-link active" href="#" aria-current="p23">Home <span class="visually-hidden">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#" aria-current="p23">Donor Card Verification <span class="visually-hidden">(current)</span></a>
+                        <a class="nav-link active" href="/card" aria-current="p23">Donor Card Verification <span class="visually-hidden">(current)</span></a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto mt-2 mt-lg-0">

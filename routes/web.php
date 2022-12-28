@@ -22,6 +22,11 @@ Route::get('/', function () {
     return view('welcome',['users'=>User::all()]);
 });
 
+Route::get('/card', function () {
+    return view("donorCard");
+});
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
