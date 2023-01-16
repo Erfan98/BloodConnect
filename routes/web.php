@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 use Dompdf\Dompdf;
+use FontLib\Table\Type\post;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,11 @@ Route::post('/filter',function(Request $request){
     }
 
 
+});
+
+Route::post('save-date',function(Request $request){
+    User::where('id',auth()->user()->id)->update(['created_at'=>$request->date]);
+    return redirect('/database');
 });
 
 // Route::post('/filter',function(Request $request){

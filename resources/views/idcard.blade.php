@@ -13,7 +13,7 @@
 
 </head>
 
-<body class="container">
+<body class="container h-100 d-flex align-items-center justify-content-center">
 
     <div class="card text-center" style="width: 30rem; border-radius:10px">
         {{-- <img src="..." class="card-img-top" alt="..."> --}}

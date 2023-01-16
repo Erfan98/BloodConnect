@@ -43,6 +43,10 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="/logout" target="_blank" rel="noopener noreferrer">Logout</a>
                     </li>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Update Donation Date
+                      </button>
+
                     @endauth
                     @guest
                         <li class="nav-item">
@@ -164,6 +168,32 @@
 
   </main>
   <footer>
+    <!-- Button trigger modal -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Donation Date Information</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="/save-date" method="post">
+                @csrf
+                <input class="form" type="date" name="date" id="date">
+                {{-- <button type="submit" class="btn btn-primary">Search</button> --}}
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
     <!-- place footer here -->
   </footer>
   <!-- Bootstrap JavaScript Libraries -->
