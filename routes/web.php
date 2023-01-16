@@ -6,6 +6,7 @@ use App\Models\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
+use Dompdf\Dompdf;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +20,15 @@ use Illuminate\Support\Facades\Redis;
 */
 
 Route::get('/', function () {
+    return view('front',['users'=>User::all()]);
+});
+Route::get('/database', function () {
     return view('welcome',['users'=>User::all()]);
 });
 
 Route::get('/card', function () {
-    return view("donorCard");
-});
+     return view("idcard");
+})->middleware('auth');
 
 
 Route::get('/dashboard', function () {
